@@ -5,6 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 import App from './components/app/App'
+import {createStore} from "redux";
+
+const store = createStore();
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
