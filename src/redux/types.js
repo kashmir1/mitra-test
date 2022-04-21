@@ -1,0 +1,3 @@
+export const FETCH_GALLERY = 'GALLERY/FETCH_GALLERY';
+export const SHOW_LOADER = 'APP/SHOW_LOADER';
+export const HIDE_LOADER = 'APP/HIDE_LOADER';

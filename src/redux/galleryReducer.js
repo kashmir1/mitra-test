@@ -1,7 +1,13 @@
+import { FETCH_GALLERY } from "./types";
+
 const initialState = {
-    gallery: [1, 2, 3]
+    gallery: []
 };
 
 export const galleryReducer = (state = initialState, action) => {
-    return state;
+    switch (action.type) {
+        case FETCH_GALLERY:
+            return {...state, gallery: action.payload};
+        default: return state
+    }
 };

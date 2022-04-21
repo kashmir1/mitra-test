@@ -1,32 +1,37 @@
-import React from "react";
-import {connect} from 'react-redux'
+import React, { useEffect } from "react";
+import { connect, useDispatch, useSelector } from 'react-redux'
 import GalleryItem from "../gallery-item/GalleryItem";
+import { fetchGallery } from "../../redux/actions";
 
-const Gallery = ({ gallery }) => {
+const Gallery = () => {
 
-    // let items = [];
-    //
-    // for (let i = 1; i <= 6; i++) {
-    //     items.push(i)
-    // }
+    const dispatch = useDispatch();
+    const gallery = useSelector((state) => {
+        return state.gallery.gallery
+    });
+
+    useEffect(() => {
+        dispatch(fetchGallery())
+    });
 
     return (
         <div>
             <div className="container">
                 <h1 className="mb-5">Галерея</h1>
                 <div className="row justify-content-between flex-lg-wrap">
-                    {gallery.map((item) => <div className="col-lg-4 mb-3"><GalleryItem key={item} item={item}/></div>)}
+                    {gallery.map((item) => <div className="col-lg-4 mb-3">
+                        <GalleryItem
+                            key={item.id}
+                            title={item.title}
+                            url={item.url}
+                            item={item}
+                        />
+                    </div>)}
                 </div>
             </div>
         </div>
     )
 };
 
-const mapStateToProps = state => {
-    console.log(state);
-    return {
-        gallery: state.gallery.gallery
-    }
-};
 
-export default connect(mapStateToProps, null)(Gallery);
+export default Gallery;
