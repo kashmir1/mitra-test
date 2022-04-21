@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import {Container, Navbar} from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import './navbar.css'
 
@@ -24,7 +24,7 @@ function NavBar() {
 
                             <div className='col-lg-6'><Navbar.Brand href="#home">Галерея</Navbar.Brand></div>
                         </div>
-                        <nav>
+                        <nav className={!isMenuOpen ? 'd-none' : 'd-block'}>
                             <ul className="list-unstyled">
                                 <li>
                                     <NavLink className={ ({ isActive }) => (isActive ? 'active' : '') }
