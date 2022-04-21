@@ -1,5 +1,5 @@
 const initialState = {
-    gallery: []
+    gallery: [1, 2, 3]
 };
 
 export const galleryReducer = (state = initialState, action) => {
